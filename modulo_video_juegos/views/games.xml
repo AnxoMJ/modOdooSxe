@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id='lvjuegos_action' model='ir.actions.act_window'>
+        <field name="name">Lista Videojuegos</field>
+        <field name="res_model">games</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form,calendar</field>
+    </record>
+
+    <menuitem name="Videjuegos" id="lvjuegos_base_menu" />
+    <menuitem name="Videjuegos" id="lvjuegos_menu" parent="lvjuegos_base_menu" action="lvjuegos_action"/>
+
+    <!-- Form View -->
+    <record id="lvjuegos_view_form" model="ir.ui.view">
+        <field name="name">Lista Videojuegos Form</field>
+        <field name="model">games</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="make_available" string="Hacer Disponible" type="object"/>
+                    <button name="make_unavailable"  string="Hacer No Disponible" type="object"/>
+                    <field name="state" widget="statusbar"/>
+                </header>
+                <group>
+                    <group>
+                        <field name="name"/>
+                        <field name="videoUrl" widget="html"/>
+                        <field name="image" widget="image" class="oe_avatar"/>
+                        <field name="author_ids" widget="many2many_tags"/>
+                    </group>
+                    <group>
+                        <field name="description"/>
+                        <field name="price"/>
+                        <field name="category_id" widget="many2many_tags"/>
+                        <field name="date_release"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="lvjuegos_view_tree" model="ir.ui.view">
+        <field name="name">Lista Videojuegos Lista</field>
+        <field name="model">games</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="price"/>
+                <field name="date_release"/>
+                <field name="category_id" widget="many2many_tags"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Search View -->
+    <record id="lvjuegos_view_search" model="ir.ui.view">
+        <field name="name">Lista Videojuegos Busqueda</field>
+        <field name="model">games</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name"/>
+                <field name="author_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Kanban View -->
+    <record id="lvjuegos_view_kanban" model="ir.ui.view">
+        <field name="name">Lista Videojuegos Kanban</field>
+        <field name="model">games</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="date_release" default_order="name">
+                <field name="id" />
+                <field name="state" />
+                <field name="image" />
+                <field name="name" />
+                <templates>
+                    <t t-name="kanban-box">
+                        <div class="oe_kanban_card oe_kanban_global_click">
+                            <field name="name" />
+                            <t t-if="record.image.raw_value">
+                                    <div class="o_kanban_image_fill_center d-none d-md-block">
+                                        <img class="o_kanban_image_inner_pic" style="max-height: 100px;max-width: 100px" t-att-alt="record.id.value" t-att-src="kanban_image('games', 'image', record.id.raw_value)"/>
+                                    </div>
+                                    <b>Descripción:</b><br/>
+                                  <field name="description" />
+                            </t>
+                              <br/>
+                              <field name="videoUrl" widget="html"/>
+                              <b>Género:</b>
+                              <field name="category_id" />
+                              <br/>
+                              <b>Precio:</b>
+                              <field name="price"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Calendar View -->
+    <record id="library_loan_view_calendar" model="ir.ui.view">
+        <field name="name">Lista Videojuegos Calendar</field>
+        <field name="model">games</field>
+        <field name="arch" type="xml">
+            <calendar string="Lents" date_start="date_release" date_stop="date_release" mode="month" form_view_id="lvjuegos_view_form">
+                <field name="name" />
+                <field name="price"/>
+            </calendar>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id='game_reserve_action' model='ir.actions.act_window'>
+        <field name="name">Reservas</field>
+        <field name="res_model">game.reserve</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form,calendar</field>
+    </record>
+
+    <menuitem name="Reservas" id="game_reserve_menu" parent="lvjuegos_base_menu" action="game_reserve_action"/>
+
+    <!-- Form View -->
+    <record id="game_reserve_view_form" model="ir.ui.view">
+        <field name="name">Reservas Form</field>
+        <field name="model">game.reserve</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="completed" string="Cerrar Pedido" type="object"/>
+                    <button name="contOrders" string="Pedidos pendientes" type="object"/>
+                </header>
+                <group>
+                    <group>
+                        <field name="game_id" string="Videojuego"/>
+                        <field name="client_id" string="Cliente"/>
+                    </group>
+                    <field name="client_image" widget="image" class="oe_avatar"/>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_complete"/>
+                        <field name="isCompleted"/>
+                    </group>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree(list) View -->
+    <record id="game_reserve_view_tree" model="ir.ui.view">
+        <field name="name">Reservas List</field>
+        <field name="model">game.reserve</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="client_id" string="Cliente"/>
+                <field name="date_complete"/>
+                <field name="isCompleted"/>
+                <field name="game_id" string="Videojuego"/>
+                <field name="date_start"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Calendar View -->
+    <record id="game_reserve_view_calendar" model="ir.ui.view">
+        <field name="name">Lista Reservas Calendar</field>
+        <field name="model">game.reserve</field>
+        <field name="arch" type="xml">
+            <calendar string="Lents" date_start="date_start" date_stop="date_start" mode="month" form_view_id="game_reserve_view_form">
+                <field name="game_id" />
+                <field name="client_id"/>
+            </calendar>
+        </field>
+    </record>
+
+</odoo>

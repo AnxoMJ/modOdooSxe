@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+acl_game,games_default,model_games,,1,0,0,0
+acl_game_librarian,games_librarian,model_games,group_librarian,1,1,1,1
+
+acl_game_category,games_category_default,model_games_category,,1,0,0,0
+acl_game_category_librarian,games_category_librarian,model_games_category,group_librarian,1,1,1,1
+
+acl_client,game.client_default,model_game_client,,1,0,0,0
+acl_client_librarian,game.client_librarian,model_game_client,group_librarian,1,1,1,1
+
+acl_reserve,game.reserve_default,model_game_reserve,,1,0,0,0
+acl_reserve_librarian,game.reserve_librarian,model_game_reserve,group_librarian,1,1,1,1
