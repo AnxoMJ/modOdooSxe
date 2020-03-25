@@ -9,6 +9,7 @@ Implementa vistas kanban, calendar y las estandar(tree y form)
 
 Esta basado en la práctica de la biblioteca, gran parte de las clases son de la misma, pero modificadas para encajar el el concepto de videojuegos.
 Pero el módulo se creó con la herramienta que ofrece odoo.
+Está programado y probado en odoo 12.0.
 
 ***
 
