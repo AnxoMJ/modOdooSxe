@@ -38,10 +38,12 @@ class GameReserve(models.Model):
     def contOrders(self):
         orders = self.env['game.reserve']
         cont = 0
+        totalPrice = 0
         for order in orders.search([]):
             if (order.isCompleted == False and order.client_id == self.client_id):
                 cont+=1
-        raise models.ValidationError('Encargos pendientes: '+str(cont))
+                totalPrice+=order.game_id.price
+        raise models.ValidationError('Encargos pendientes: '+str(cont)+"\nPrecio total: "+str(totalPrice))
 
 #constrain que verifica que no se reserve un videojuego no disponible
     @api.constrains('game_id')

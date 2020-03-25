@@ -23,6 +23,7 @@
                         <field name="date_start"/>
                         <field name="date_of_birth"/>
                         <field name="remaining_orders"/>
+                        <field name="total_price"/>
                     </group>
                 </group>
             </form>
@@ -39,8 +40,9 @@
                 <field name="date_of_birth"/>
                 <field name="date_start"/>
                 <field name="remaining_orders"/>
+                <field name="total_price"/>
             </tree>
         </field>
     </record>
-    
+
 </odoo>

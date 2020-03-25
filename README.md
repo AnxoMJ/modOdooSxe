@@ -52,8 +52,8 @@ Esta clase es la misma de Categorias de la biblioteca, pero con los nombres de l
 **Reservas vista Calendar:**
 ![lvidkanban](capturas/7.png)
 
-**Reservas vista Calendar:**
-![lvidkanban](capturas/10.png)
+**Reservas vista Forlm:**
+![resvCal](capturas/10.png)
 
 La fecha de finalización y el valor completado, se generan pulsando el boton "cerrar pedido", establece el campo completado a True y establece como fecha de finalización la actual.
 
@@ -63,13 +63,13 @@ Si ya estaba finalizado sale este mensaje:
 
 ![lvidkanban](capturas/14.png)
 
-Si se pulsa en el boton de pedidos pendientes, muestra el número de pedidos sin completar del cliente actual.
+Si se pulsa en el boton de pedidos pendientes, muestra el número de pedidos sin completar del cliente actual y el precio total de sus reservas.
 
-![lvidkanban](capturas/11.png)
+![inpeds](capturas/11.png)
 
 **Clientes vista Tree:**
 ![lvidkanban](capturas/16.png)
-(El campo Pedidos Pendientes, es un campo calculado y hace lo mismo que el boton de arriba)
+(El campo Pedidos Pendientes y el de Precio Total, es un campo calculado y hace lo mismo que el boton de arriba)
 
 ---
 ***Autor: Manuel Ángel Mazás De Jesús***
