@@ -1,30 +1,268 @@
 <odoo>
     <data>
-        <!--  -->
-        <!--   <record id="object0" model="modulo_video_juegos.modulo_video_juegos"> -->
-        <!--     <field name="name">Object 0</field> -->
-        <!--     <field name="value">0</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object1" model="modulo_video_juegos.modulo_video_juegos"> -->
-        <!--     <field name="name">Object 1</field> -->
-        <!--     <field name="value">10</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object2" model="modulo_video_juegos.modulo_video_juegos"> -->
-        <!--     <field name="name">Object 2</field> -->
-        <!--     <field name="value">20</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object3" model="modulo_video_juegos.modulo_video_juegos"> -->
-        <!--     <field name="name">Object 3</field> -->
-        <!--     <field name="value">30</field> -->
-        <!--   </record> -->
-        <!--  -->
-        <!--   <record id="object4" model="modulo_video_juegos.modulo_video_juegos"> -->
-        <!--     <field name="name">Object 4</field> -->
-        <!--     <field name="value">40</field> -->
-        <!--   </record> -->
-        <!--  -->
+      <!-- Categorias  -->
+        <record id="cSandbox" model="games.category">
+         <field name="name">Sandbox</field>
+         <field name="description">Un videojuego no lineal presenta al jugador desafíos que pueden ser completados en un número de secuencias diferentes. Mientras que un videojuego lineal enfrentará al jugador con una serie fija de retos, un juego menos lineal concederá mucha más libertad al jugador. Por ejemplo, un videojuego no lineal puede permitir múltiples secuencias para finalizar el juego, una elección entre caminos a la victoria, o misiones opcionales y argumentos secundarios. Algunos juegos poseen ambos elementos de linealidad y no linealidad; y algunos juegos ofrecen un modo sandbox que deja a los jugadores explorar el ambiente del videojuego independientemente de los objetivos principales del juego.</field>
+        </record>
+        <record id="cSurvival" model="games.category">
+         <field name="name">Survival</field>
+         <field name="description">Los videojuegos de supervivencia son un subgénero de los videojuegos de acción ambientado en un ambiente hostil, intenso y de mundo abierto, donde los jugadores generalmente comienzan con equipos mínimos y se les exige que recolecten recursos, herramientas de artesanía, armas y refugio, y sobrevivan el mayor tiempo posible</field>
+        </record>
+        <record id="cBloques" model="games.category">
+         <field name="name">Bloques</field>
+         <field name="description">Mundo formado por bloques o elementos con formas de bloques.</field>
+        </record>
+        <record id="cAventura" model="games.category">
+         <field name="name">Aventura</field>
+         <field name="description">Los videojuegos de aventura son un género de videojuegos, caracterizados por la investigación, exploración, la solución de rompecabezas, la interacción con personajes del videojuego, y un enfoque en el relato en vez de desafíos basados en reflejos.</field>
+        </record>
+        <record id="cTerror" model="games.category">
+         <field name="name">Terror</field>
+         <field name="description">Es un género de videojuegos inspirado en la ficción de terror</field>
+        </record>
+        <record id="cShooter" model="games.category">
+         <field name="name">Shooter</field>
+         <field name="description">Los videojuegos de disparos o shooters son un género que engloban un amplio número de subgéneros que tienen la característica común de permitir controlar un personaje que, por norma general, dispone de un arma que puede ser disparada a voluntad. Pertenecen al género de acción.</field>
+        </record>
+        <record id="cWstern" model="games.category">
+         <field name="name">Western</field>
+         <field name="description">El wéstern1​2​ es un género cinematográfico típico del cine estadounidense que se ambienta en el Viejo Oeste estadounidense.</field>
+        </record>
+        <record id="cAccion" model="games.category">
+         <field name="name">Acción</field>
+        <field name="description">Un videojuego de acción es un videojuego en el que el jugador debe usar su velocidad, destreza y tiempo de reacción.</field>
+        </record>
+        <record id="cMundoAbierto" model="games.category">
+         <field name="name">Mundo Abierto</field>
+         <field name="description">Videojuego de mundo abierto. Un videojuego de mundo abierto es aquel que ofrece al jugador la posibilidad de moverse libremente por un mundo virtual y alterar cualquier elemento a su voluntad.</field>
+        </record>
+        <record id="cRPG" model="games.category">
+         <field name="name">RPG</field>
+         <field name="description">Un videojuego de rol o juego de rol por ordenador, también llamado por simplificación juego de rol (JDR), o referido con la sigla inglesa RPG (role-playing game) o CRPG (computer role-playing game), es un género de videojuegos donde el jugador controla las acciones de un personaje (o de diversos miembros de un grupo) inmerso en algún detallado mundo.</field>
+        </record>
+      <!-- Empresas -->
+        <record model="res.partner" id="comp_betheshda">
+          <field name="name">Betheshda</field>
+          <field name="company_id" ref="base.main_company" />
+          <field name="parent_id" ref="base.main_partner" />
+          <field name="use_parent_address" eval="False" />
+          <field name="type">contact</field>
+          <field name="customer" eval="False" />
+          <field name="supplier" eval="False" />
+          <field name="is_company" eval="True" />
+          <field name="agent" eval="False" />
+          <field name="zip">12345</field>
+          <field name="city">Washington</field>
+          <field name="street">Musterstrasse 1</field>
+          <field name="phone">26455562489</field>
+        </record>
+        <record model="res.partner" id="comp_idsoftware">
+          <field name="name">Id Software</field>
+          <field name="company_id" ref="base.main_company" />
+          <field name="parent_id" ref="base.main_partner" />
+          <field name="use_parent_address" eval="False" />
+          <field name="type">contact</field>
+          <field name="customer" eval="False" />
+          <field name="supplier" eval="False" />
+          <field name="is_company" eval="True" />
+          <field name="agent" eval="False" />
+          <field name="zip">12234</field>
+          <field name="city">Washington</field>
+          <field name="street">Musterstrasse 2</field>
+          <field name="phone">256565659969</field>
+        </record>
+        <record model="res.partner" id="comp_microsoft">
+          <field name="name">Microsoft</field>
+          <field name="company_id" ref="base.main_company" />
+          <field name="parent_id" ref="base.main_partner" />
+          <field name="use_parent_address" eval="False" />
+          <field name="type">contact</field>
+          <field name="customer" eval="False" />
+          <field name="supplier" eval="False" />
+          <field name="is_company" eval="True" />
+          <field name="agent" eval="False" />
+          <field name="zip">25468</field>
+          <field name="city">Washington</field>
+          <field name="street">Musterstrasse 3</field>
+          <field name="phone">26455562489</field>
+        </record>
+        <record model="res.partner" id="comp_mojang">
+          <field name="name">Mojang</field>
+          <field name="company_id" ref="base.main_company" />
+          <field name="parent_id" ref="base.main_partner" />
+          <field name="use_parent_address" eval="False" />
+          <field name="type">contact</field>
+          <field name="customer" eval="False" />
+          <field name="supplier" eval="False" />
+          <field name="is_company" eval="True" />
+          <field name="agent" eval="False" />
+          <field name="zip">356345</field>
+          <field name="city">Washington</field>
+          <field name="street">Musterstrasse 4</field>
+          <field name="phone">26455562489</field>
+        </record>
+        <record model="res.partner" id="comp_RockstarGames">
+          <field name="name">Rockstar Games</field>
+          <field name="company_id" ref="base.main_company" />
+          <field name="parent_id" ref="base.main_partner" />
+          <field name="use_parent_address" eval="False" />
+          <field name="type">contact</field>
+          <field name="customer" eval="False" />
+          <field name="supplier" eval="False" />
+          <field name="is_company" eval="True" />
+          <field name="agent" eval="False" />
+          <field name="zip">12345</field>
+          <field name="city">Washington</field>
+          <field name="street">Musterstrasse 1</field>
+          <field name="phone">26455562489</field>
+        </record>
+        <record model="res.partner" id="comp_valve">
+          <field name="name">Valve</field>
+          <field name="company_id" ref="base.main_company" />
+          <field name="parent_id" ref="base.main_partner" />
+          <field name="use_parent_address" eval="False" />
+          <field name="type">contact</field>
+          <field name="customer" eval="False" />
+          <field name="supplier" eval="False" />
+          <field name="is_company" eval="True" />
+          <field name="agent" eval="False" />
+          <field name="zip">12345</field>
+          <field name="city">Washington</field>
+          <field name="street">Musterstrasse 1</field>
+          <field name="phone">26455562489</field>
+        </record>
+      <!-- Videojuegos -->
+         <record id="gDoom" model="games">
+          <field name="name">Doom Ethernal</field>
+          <field name="description">Doom Eternal es un videojuego de acción y disparos en primera persona desarrollado por id Software y publicado por Bethesda Softworks.​ Es el quinto título principal de la serie Doom y la secuela directa del juego estrenado en 2016.​</field>
+          <field name="videoUrl" type="char" file="modulo_video_juegos/static/example/doomEt.html"/>
+          <field name="price">59.99</field>
+          <field name="date_release">2020-02-11</field>
+          <field name="author_ids" eval="[(6, 0, [ref('comp_betheshda'),ref('comp_idsoftware')])]"/>
+          <field name="category_id" eval="[(6, 0, [ref('cTerror'),ref('cShooter'),ref('cAccion')])]"/>
+          <field name="image" type="base64" file="modulo_video_juegos/static/example/doomEt.jpg"/>
+          <field name="state">available</field>
+         </record>
+         <record id="gMinecraft" model="games">
+          <field name="name">Minecraft</field>
+          <field name="description">Minecraft es un videojuego de construcción, de tipo «mundo abierto» o sandbox creado originalmente por el sueco Markus Persson, ​ y posteriormente desarrollado por su empresa, Mojang AB.​</field>
+          <field name="videoUrl" type="char" file="modulo_video_juegos/static/example/minecraft.html"/>
+          <field name="price">27.95</field>
+          <field name="date_release">2009-05-17</field>
+          <field name="author_ids" eval="[(6, 0, [ref('comp_mojang'),ref('comp_microsoft')])]"/>
+          <field name="category_id" eval="[(6, 0, [ref('cSurvival'),ref('cSandbox'),ref('cBloques'),ref('cAventura')])]"/>
+          <field name="image" type="base64" file="modulo_video_juegos/static/example/minecraft.jpg"/>
+          <field name="state">available</field>
+         </record>
+         <record id="gRdR2" model="games">
+          <field name="name">Red Dead Redemption 2</field>
+          <field name="description">Red Dead Redemption 2 es un videojuego de acción-aventura western, en un mundo abierto y en perspectiva de primera y tercera persona, ​ con componentes para un jugador y multijugador.​ Fue desarrollado por Rockstar Studios. Es la precuela de Red Dead Redemption y el tercer juego de la saga Red Dead.​​ ​</field>
+          <field name="videoUrl" type="char" file="modulo_video_juegos/static/example/rdr2.html"/>
+          <field name="price">45.95</field>
+          <field name="date_release">2018-10-26</field>
+          <field name="author_ids" eval="[(6, 0, [ref('comp_RockstarGames')])]"/>
+          <field name="category_id" eval="[(6, 0, [ref('cAventura'),ref('cShooter'),ref('cWstern'),ref('cAccion')])]"/>
+          <field name="image" type="base64" file="modulo_video_juegos/static/example/rdr2.jpg"/>
+          <field name="state">available</field>
+         </record>
+         <record id="gHL3" model="games">
+          <field name="name">Half Life 3</field>
+          <field name="description">Half-Life es una serie de videojuegos pertenecientes al género de disparos en primera persona que fue desarrollado y publicado por la empresa Valve. Las entregas principales cuentan con el protagonista Gordon Freeman, un físico que lucha contra una invasión alienígena.</field>
+          <field name="videoUrl" type="char" file="modulo_video_juegos/static/example/hl3.html"/>
+          <field name="price">66.66</field>
+          <field name="date_release">2077-04-1</field>
+          <field name="author_ids" eval="[(6, 0, [ref('comp_mojang'),ref('comp_microsoft')])]"/>
+          <field name="category_id" eval="[(6, 0, [ref('cAventura'),ref('cShooter'),ref('cAccion')])]"/>
+          <field name="image" type="base64" file="modulo_video_juegos/static/example/hl3.jpg"/>
+          <field name="state">unavailable</field>
+         </record>
+      <!-- ClientesRParter -->
+         <record model="res.partner" id="clientRp_cl1">
+           <field name="name">Enrrique Fernandes</field>
+           <field name="company_id"></field>
+           <field name="parent_id" ></field>
+           <field name="use_parent_address" eval="False" />
+           <field name="type">contact</field>
+           <field name="customer" eval="True" />
+           <field name="supplier" eval="False" />
+           <field name="is_company" eval="False" />
+           <field name="agent" eval="False" />
+           <field name="zip">12345</field>
+           <field name="city">Washington</field>
+           <field name="street">Musterstrasse 1</field>
+           <field name="phone">26455562489</field>
+         </record>
+         <record model="res.partner" id="clientRp_cl2">
+           <field name="name">Sara Agra</field>
+           <field name="company_id"></field>
+           <field name="parent_id" ></field>
+           <field name="use_parent_address" eval="False" />
+           <field name="type">contact</field>
+           <field name="customer" eval="True" />
+           <field name="supplier" eval="False" />
+           <field name="is_company" eval="False" />
+           <field name="agent" eval="False" />
+           <field name="zip">12345</field>
+           <field name="city">Spain</field>
+           <field name="street">Musterstrasse 1</field>
+           <field name="phone">26455562489</field>
+         </record>
+         <record model="res.partner" id="clientRp_cl3">
+           <field name="name">Celso Casares</field>
+           <field name="company_id"></field>
+           <field name="parent_id" ></field>
+           <field name="use_parent_address" eval="False" />
+           <field name="type">contact</field>
+           <field name="customer" eval="True" />
+           <field name="supplier" eval="False" />
+           <field name="is_company" eval="False" />
+           <field name="agent" eval="False" />
+           <field name="zip">12345</field>
+           <field name="city">Madird</field>
+           <field name="street">Musterstrasse 1</field>
+           <field name="phone">26455562489</field>
+         </record>
+      <!-- Clientes -->
+         <record model="game.client" id="client_cl1">
+          <field name="partner_id" ref="clientRp_cl1"/>
+          <field name="date_of_birth">1987-04-1</field>
+         </record>
+         <record model="game.client" id="client_cl2">
+          <field name="partner_id" ref="clientRp_cl2"/>
+          <field name="date_of_birth">1997-04-10</field>
+         </record>
+         <record model="game.client" id="client_cl3">
+          <field name="partner_id" ref="clientRp_cl3"/>
+          <field name="date_of_birth">1995-06-14</field>
+         </record>
+       <!-- Pedidos -->
+          <record model="game.reserve" id="res1">
+           <field name="client_id" ref="client_cl1"/>
+           <field name="game_id" ref="gDoom"/>
+          </record>
+          <record model="game.reserve" id="res2">
+           <field name="client_id" ref="client_cl1"/>
+           <field name="game_id" ref="gMinecraft"/>
+          </record>
+          <record model="game.reserve" id="res3">
+           <field name="client_id" ref="client_cl1"/>
+           <field name="game_id" ref="gRdR2"/>
+          </record>
+          <record model="game.reserve" id="res4">
+           <field name="client_id" ref="client_cl2"/>
+           <field name="game_id" ref="gDoom"/>
+          </record>
+          <record model="game.reserve" id="res5">
+           <field name="client_id" ref="client_cl2"/>
+           <field name="game_id" ref="gMinecraft"/>
+           <field name="isCompleted" >True</field>
+           <field name="date_start">2020-06-14</field>
+           <field name="date_complete">2020-06-15</field>
+          </record>
+          <record model="game.reserve" id="res6">
+           <field name="client_id" ref="client_cl3"/>
+           <field name="game_id" ref="gRdR2"/>
+          </record>
     </data>
 </odoo>

@@ -16,7 +16,7 @@ class GameClients(models.Model):
     date_start = fields.Date('Cliente Desde',default = lambda *a:datetime.now().strftime('%Y-%m-%d'))
     date_of_birth = fields.Date('Fecha de nacimiento', required = True)
     remaining_orders = fields.Integer('Pedidos Pendientes', compute = 'check_remain_orders', default = 0)
-    total_price = fields.Integer('Precio Total', compute = 'check_remain_orders', default = 0)
+    total_price = fields.Float('Precio Total', compute = 'check_remain_orders', default = 0)
 
 #constrain que verifica que no sea más joven que el día en el que se registra
     @api.constrains('date_of_birth', 'date_start')

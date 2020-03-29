@@ -5,6 +5,8 @@
 Este módulo se encarga de listar videojuegos, mostrando información relevante sobre ellos.
 Tambien gestiona reservas(solo las crea y las cierra, con pequeñas validaciones).
 
+Para facilitar la comprensión y la corrección, he implementado datos para el modo demo, son prácticamente los mismos datos que se muestran en las capturas.
+
 Implementa vistas kanban, calendar y las estandar(tree y form)
 
 Esta basado en la práctica de la biblioteca, gran parte de las clases son de la misma, pero modificadas para encajar el el concepto de videojuegos.
