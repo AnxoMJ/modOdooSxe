@@ -49,6 +49,5 @@ class GameReserve(models.Model):
     @api.constrains('game_id')
     def _check_dates(self):
         for client in self:
-        #    if client.date_of_birth >= client.date_start:
             if client.game_id.state=="unavailable":
                     raise models.ValidationError('No se puede reservar un videojuego que no esta disponible!!!')

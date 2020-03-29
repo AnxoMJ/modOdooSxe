@@ -44,3 +44,23 @@ class Games(models.Model):
 
     def make_unavailable(self):
         self.change_state('unavailable')
+
+#se encarga de realizar un pedido, se ejecuta con privilegios, para que lo pueda ejecutar un usuario normal, sin tener que darle permisos especiales.
+    def reserve(self):
+        partner = self.env['res.users'].browse(self.env.uid).partner_id
+        clients = self.env['game.client']
+        idCli = 0
+        for client in clients.search([]):
+            if (client.partner_id.id == partner.id):
+                idCli=client.id
+        if idCli == 0:
+            raise models.ValidationError("Este usuario tiene que ser agregado como cliente para poder hacer reservas")
+            return
+        for rec in self:
+          inv_obj = self.env['game.reserve']
+          self.ensure_one()
+          invoice = inv_obj.sudo().create({
+          'client_id': idCli,
+              'game_id': self.id
+          })
+          return invoice

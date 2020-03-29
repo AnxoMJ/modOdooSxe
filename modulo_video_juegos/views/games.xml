@@ -20,6 +20,7 @@
                 <header>
                     <button name="make_available" string="Hacer Disponible" type="object"/>
                     <button name="make_unavailable"  string="Hacer No Disponible" type="object"/>
+                    <button name="reserve"  string="Reservar" type="object"/>
                     <field name="state" widget="statusbar"/>
                 </header>
                 <group>

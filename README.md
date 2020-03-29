@@ -71,6 +71,23 @@ Si se pulsa en el boton de pedidos pendientes, muestra el número de pedidos sin
 
 ![inpeds](capturas/11.png)
 
+También se puede hacer una reserva clicando en el botón "Reservar" cuando se selecciona un juego.
+
+![btResv](capturas/18.png)
+
+Lo que hace es crear una reserva con el usuario actual y el juego seleccionado.
+Si el usuario no está dado de alta como cliente, aparece el siguienete mensaje:
+
+![nCLient](capturas/19.png)
+
+Añadimos el usuario actual como cliente:
+
+![nCLient](capturas/20.png)
+
+Le damos al boton y se crea el siguiente registro:
+
+![nCLient](capturas/21.png)
+
 **Clientes vista Tree:**
 ![lvidkanban](capturas/16.png)
 (El campo Pedidos Pendientes y el de Precio Total, es un campo calculado y hace lo mismo que el boton de arriba)
